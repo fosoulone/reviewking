@@ -8,7 +8,9 @@ var methodOverride = require('method-override'); // simulate DELETE and PUT (exp
 var cors = require('cors');
 
 // Configuration
-mongoose.connect('mongodb://localhost/reviewking');
+mongoose.connect('mongodb://adminReviews:adminReviews@localhost/reviewking', {
+	useMongoClient: true
+});
 
 app.use(morgan('dev')); // log every request to the console
 app.use(bodyParser.urlencoded({
@@ -89,5 +91,5 @@ app.delete('/api/reviews/:review_id', function (req, res) {
 
 
 // listen (start app with node server.js) ======================================
-app.listen(8080,'0.0.0.0');
-console.log("App listening on port 8080");
+app.listen(15015,'0.0.0.0');
+console.log("App listening on port 15015");

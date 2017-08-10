@@ -83,7 +83,10 @@ var HomePage = (function () {
         modal.onDidDismiss(function (review) {
             if (review) {
                 _this.reviews.push(review);
-                _this.reviewService.createReview(review);
+                _this.reviewService.createReview(review).subscribe(function (data) {
+                    console.log(data);
+                    _this.reviews = data;
+                });
             }
         });
         modal.present();
@@ -101,7 +104,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'home-page',template:/*ion-inline-start:"/home/eduardo/proyects/app2/review-king/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar transparent>\n        <ion-title>\n            Review King\n        </ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="addReview()"><ion-icon name="add"></ion-icon></button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-list no-lines>\n\n        <ion-item-sliding *ngFor="let review of reviews">\n\n            <ion-item>\n\n\n\n\n                <h2>{{review.title}}</h2>\n                <p>{{review.description}}</p>\n\n                <ion-icon *ngIf="review.rating < 50" danger name="sad"></ion-icon>\n                <ion-icon *ngIf="review.rating >= 50" secondary name="happy"></ion-icon>\n                {{review.rating}}\n\n            </ion-item>\n\n            <ion-item-options>\n                <button ion-button color="danger" (click)="deleteReview(review)">\n          <ion-icon name="trash"></ion-icon>\n          Delete\n        </button>\n            </ion-item-options>\n        </ion-item-sliding>\n\n    </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/eduardo/proyects/app2/review-king/src/pages/home/home.html"*/
+        selector: 'home-page',template:/*ion-inline-start:"/home/bitnami/proyects/app1/review-king/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar transparent>\n        <ion-title>\n            Aplicacion prueba\n        </ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="addReview()"><ion-icon name="add"></ion-icon></button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-list no-lines>\n\n        <ion-item-sliding *ngFor="let review of reviews">\n\n            <ion-item>\n\n\n\n\n                <h2>{{review.title}}</h2>\n                <p>{{review.description}}</p>\n\n                <ion-icon *ngIf="review.rating < 50" danger name="sad"></ion-icon>\n                <ion-icon *ngIf="review.rating >= 50" secondary name="happy"></ion-icon>\n                {{review.rating}}\n\n            </ion-item>\n\n            <ion-item-options>\n                <button ion-button color="secondary" (click)="deleteReview(review)">\n          <ion-icon name="trash"></ion-icon>\n          Delete\n        </button>\n            </ion-item-options>\n        </ion-item-sliding>\n\n    </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/bitnami/proyects/app1/review-king/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_reviews_reviews__["a" /* Reviews */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
 ], HomePage);
@@ -145,11 +148,10 @@ var Reviews = (function () {
     Reviews.prototype.getReviews = function () {
         var _this = this;
         if (this.data) {
-            console.log("HOASDKBASKJDASBKJD");
             return Promise.resolve(this.data);
         }
         return new Promise(function (resolve) {
-            _this.http.get('http://172.26.0.34:8080/api/reviews')
+            _this.http.get('http://adminReviews:adminReviews@52.50.95.81:15015/api/reviews')
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) {
                 _this.data = data;
@@ -160,13 +162,11 @@ var Reviews = (function () {
     Reviews.prototype.createReview = function (review) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        this.http.post('http://172.26.0.34:8080/api/reviews', JSON.stringify(review), { headers: headers })
-            .subscribe(function (res) {
-            console.log(res.json());
-        });
+        return this.http.post('http://52.50.95.81:15015/api/reviews', JSON.stringify(review), { headers: headers })
+            .map(function (res) { return res.json(); });
     };
     Reviews.prototype.deleteReview = function (id) {
-        this.http.delete('http://172.26.0.34:8080/api/reviews/' + id).subscribe(function (res) {
+        this.http.delete('http://52.50.95.81:15015/api/reviews/' + id).subscribe(function (res) {
             console.log(res.json());
         });
     };
@@ -303,7 +303,7 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/eduardo/proyects/app2/review-king/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/eduardo/proyects/app2/review-king/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/bitnami/proyects/app1/review-king/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/bitnami/proyects/app1/review-king/src/app/app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
@@ -357,7 +357,7 @@ var AddReviewPage = (function () {
 AddReviewPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'add-review-page',template:/*ion-inline-start:"/home/eduardo/proyects/app2/review-king/src/pages/add-review/add-review.html"*/'<!--\n  Generated template for the AddReviewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-toolbar transparent>\n        <ion-title>Add Review</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-list no-lines>\n\n        <ion-item>\n            <ion-label floating>Title</ion-label>\n            <ion-input [(ngModel)]="title" type="text"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Review</ion-label>\n            <ion-textarea [(ngModel)]="description"></ion-textarea>\n        </ion-item>\n\n        <ion-item>\n            <ion-range min="0" max="100" pin="true" [(ngModel)]="rating">\n                <ion-icon range-left name="sad"></ion-icon>\n                <ion-icon range-right name="happy"></ion-icon>\n            </ion-range>\n        </ion-item>\n\n    </ion-list>\n\n    <button ion-button full color="secondary" (click)="save()">Save</button>\n\n</ion-content>\n'/*ion-inline-end:"/home/eduardo/proyects/app2/review-king/src/pages/add-review/add-review.html"*/
+        selector: 'add-review-page',template:/*ion-inline-start:"/home/bitnami/proyects/app1/review-king/src/pages/add-review/add-review.html"*/'<!--\n  Generated template for the AddReviewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-toolbar transparent>\n        <ion-title>Añadir review</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>\n        </ion-buttons>\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-list no-lines>\n\n        <ion-item>\n            <ion-label floating>Titulo</ion-label>\n            <ion-input [(ngModel)]="title" type="text"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Critica</ion-label>\n            <ion-textarea [(ngModel)]="description"></ion-textarea>\n        </ion-item>\n\n        <ion-item>\n            <ion-range min="0" max="100" pin="true" [(ngModel)]="rating">\n                <ion-icon range-left name="sad"></ion-icon>\n                <ion-icon range-right name="happy"></ion-icon>\n            </ion-range>\n        </ion-item>\n\n    </ion-list>\n\n    <button ion-button full color="secondary" (click)="save()">Save</button>\n\n</ion-content>\n'/*ion-inline-end:"/home/bitnami/proyects/app1/review-king/src/pages/add-review/add-review.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ViewController */]])
 ], AddReviewPage);

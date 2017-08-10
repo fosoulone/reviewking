@@ -25198,3 +25198,25 @@ ion-navbar.toolbar {
     padding-top: calc(16px + 20px);
   }
 }
+
+.ios add-review-page ion-label, .md add-review-page ion-label {
+  margin-left: 10px;
+}
+
+.ios add-review-page ion-input, .ios add-review-page ion-select, .ios add-review-page ion-textarea, .md add-review-page ion-input, .md add-review-page ion-select, .md add-review-page ion-textarea {
+  background-color: #f2f2f2;
+  padding: 5px 10px;
+}
+
+.ios home-page ion-item, .md home-page ion-item {
+  background-color: #fff;
+  border-bottom: none !important;
+}
+
+.ios home-page ion-label, .md home-page ion-label {
+  white-space: normal;
+}
+
+.ios home-page ion-item-sliding, .md home-page ion-item-sliding {
+  margin: 10px;
+}

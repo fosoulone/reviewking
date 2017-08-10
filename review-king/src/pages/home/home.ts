@@ -31,7 +31,10 @@ export class HomePage {
     modal.onDidDismiss(review => {
       if(review){
         this.reviews.push(review);
-        this.reviewService.createReview(review);        
+        this.reviewService.createReview(review).subscribe(data => {
+		console.log(data);
+		this.reviews = data;
+	});        
       }
     });
  

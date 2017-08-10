@@ -20,13 +20,12 @@ export class Reviews {
   getReviews(){
  
     if (this.data) {
-      console.log("HOASDKBASKJDASBKJD");
-      return Promise.resolve(this.data);
+        return Promise.resolve(this.data);
     }
  
     return new Promise(resolve => {
  
-      this.http.get('http://172.26.0.34:8080/api/reviews')
+      this.http.get('http://adminReviews:adminReviews@52.50.95.81:15015/api/reviews')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -41,16 +40,16 @@ export class Reviews {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
  
-    this.http.post('http://172.26.0.34:8080/api/reviews', JSON.stringify(review), {headers: headers})
-      .subscribe(res => {
-        console.log(res.json());
-      });
+    return this.http.post('http://52.50.95.81:15015/api/reviews', 
+	JSON.stringify(review), {headers: headers})
+      .map(res => res.json());
+      
  
   }
  
   deleteReview(id){
  
-    this.http.delete('http://172.26.0.34:8080/api/reviews/' + id).subscribe((res) => {
+    this.http.delete('http://52.50.95.81:15015/api/reviews/' + id).subscribe((res) => {
       console.log(res.json());
     });    
  
