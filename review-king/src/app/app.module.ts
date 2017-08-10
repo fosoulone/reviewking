@@ -5,17 +5,24 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http'; 
 
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Reviews } from '../providers/reviews/reviews';
 import { AddReviewPage } from '../pages/add-review/add-review';
+import { Welcome } from '../pages/welcome/welcome';
+import { Login } from '../pages/login/login';
+import { Signup } from '../pages/signup/signup';
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    AddReviewPage
+    AddReviewPage,
+    Welcome,
+    Login,
+    Signup
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,10 @@ import { AddReviewPage } from '../pages/add-review/add-review';
   entryComponents: [
     MyApp,
     HomePage,
-    AddReviewPage
+    AddReviewPage,
+    Welcome,
+    Login,
+    Signup
   ],
   providers: [
     StatusBar,
