@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 
 /**
@@ -16,7 +16,7 @@ import { HomePage } from '../home/home';
 })
 export class Login {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
   
   login(){
@@ -27,5 +27,9 @@ export class Login {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+  close(): void {
+    this.viewCtrl.dismiss();
+  }
+
 
 }

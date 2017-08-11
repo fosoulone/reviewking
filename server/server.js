@@ -12,6 +12,8 @@ mongoose.connect('mongodb://adminReviews:adminReviews@localhost/reviewking', {
 	useMongoClient: true
 });
 
+app.disable('etag');
+
 app.use(morgan('dev')); // log every request to the console
 app.use(bodyParser.urlencoded({
     'extended': 'true'
