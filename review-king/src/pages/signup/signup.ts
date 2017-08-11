@@ -14,8 +14,22 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'signup.html',
 })
 export class Signup {
+  
+  username: any;
+  password: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  }
+
+  register(): void {
+
+	let registro = {
+	  username: this.username,
+	  password: this.password
+	};
+
+	this.viewCtrl.dismiss(registro);
+
   }
 
   ionViewDidLoad() {
