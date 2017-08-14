@@ -13,7 +13,7 @@ import { AddReviewPage } from '../pages/add-review/add-review';
 import { Welcome } from '../pages/welcome/welcome';
 import { Login } from '../pages/login/login';
 import { Signup } from '../pages/signup/signup';
-
+import { Users } from '../providers/users/users';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,8 @@ import { Signup } from '../pages/signup/signup';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Reviews
+    Reviews,
+    Users
   ]
 })
 export class AppModule {}

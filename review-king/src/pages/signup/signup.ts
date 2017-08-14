@@ -17,6 +17,7 @@ export class Signup {
   
   username: any;
   password: any;
+  mode: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
@@ -25,18 +26,16 @@ export class Signup {
 
 	let registro = {
 	  username: this.username,
-	  password: this.password
+	  password: this.password,
+	  mode: 1
 	};
 
 	this.viewCtrl.dismiss(registro);
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
-  }
 
-  close(): void {
+   close(): void {
     this.viewCtrl.dismiss();
   }
 

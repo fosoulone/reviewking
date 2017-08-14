@@ -30056,7 +30056,6 @@ ion-navbar.toolbar {
 }
 
 .ios add-review-page ion-input, .ios add-review-page ion-select, .ios add-review-page ion-textarea, .md add-review-page ion-input, .md add-review-page ion-select, .md add-review-page ion-textarea {
-  background-color: #f2f2f2;
   padding: 5px 10px;
 }
 

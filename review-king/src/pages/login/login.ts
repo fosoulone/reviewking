@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { HomePage } from '../home/home';
+
 
 /**
  * Generated class for the LoginPage page.
@@ -15,18 +15,25 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html',
 })
 export class Login {
-
+  
+  username: any;
+  password: any;
+  mode: any;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
   
-  login(){
+  login():void{
     // Your app login API web service call triggers 
-    this.navCtrl.push(HomePage, {}, {animate: false});
+    let log = {
+	username: this.username,
+	password: this.password,
+	mode: 0
+    };
+    this.viewCtrl.dismiss(log);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
+  
   close(): void {
     this.viewCtrl.dismiss();
   }

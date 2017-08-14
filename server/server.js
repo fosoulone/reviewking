@@ -39,6 +39,11 @@ var Review = mongoose.model('Review', {
     rating: Number
 });
 
+var User = mongoose.model('User', {
+    username: String,
+    password: String
+});
+
 // Routes
 
 // Get reviews
@@ -56,6 +61,22 @@ app.get('/api/reviews', function (req, res) {
         res.json(reviews); // return all reviews in JSON format
     });
 });
+
+app.get('/api/users', function (req, res) {
+
+    console.log("fetching users");
+
+    // use mongoose to get all reviews in the database
+   User.find(function (err, users) {
+
+        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+        if (err)
+            res.send(err)
+
+        res.json(users); // return all reviews in JSON format
+    });
+});
+
 
 // create review and send back all reviews after creation
 app.post('/api/reviews', function (req, res) {
@@ -82,6 +103,94 @@ app.post('/api/reviews', function (req, res) {
 
 });
 
+app.post('/api/users', function (req, res) {
+               
+    // create a review, information comes from request from Ionic
+/*    User.create({
+        username: req.body.username,
+        password: req.body.password,
+        done: false
+    }, function (err, user) {
+        if (err)
+            res.send(err);
+*/
+        // get and return all the reviews after you create another
+if (req.body.mode==1){
+  User.find({username: req.body.username},function(err,results){
+		if(err) res.send(err);
+		if(results.length==0){
+		    console.log("creating user");
+		    
+		    User.create({
+		        username: req.body.username,
+		        password: req.body.password,
+		        done: false
+		    }, 
+		    function (err, user) {
+		        if (err)
+           		    res.send(err);
+			User.find({username:req.body.username}, function (error, user) {
+			    if (err)
+			        res.send(err)
+			    res.json(user);
+			});
+		    });
+		}
+		else{
+			res.json({'status': -1});
+		}	
+	
+        });
+}
+
+if(req.body.mode==0){
+  
+  User.find({username: req.body.username},function(err,results){
+                if(err) res.send(err);
+                if(results.length==1){
+                    if(req.body.password==results[0].password){
+                        console.log("Loggin in");
+                        res.json({'status': 0});
+                    }
+                    else {
+                        res.json({'status':-1});
+                    }
+
+                }
+
+                else {
+                        res.json({'status':-1});
+                }
+   });
+
+}
+
+});
+
+/*app.post('/api/users', function (req, res) {
+
+
+    // create a review, information comes from request from Ionic
+    // get and return all the reviews after you create another
+
+  User.find({username: req.body.username},function(err,results){
+                if(err) res.send(err);
+                if(results.length==1){
+                    if(req.body.password==results[0].password){
+			console.log("Loggin in");
+                   	res.json({'status': 0});
+		    }
+		    else {
+                        res.json({'status':-1});
+	            }
+
+                }
+
+		else {
+			res.json({'status':-1});
+		}
+   });
+});
 // delete a review
 app.delete('/api/reviews/:review_id', function (req, res) {
     Review.remove({
@@ -91,7 +200,7 @@ app.delete('/api/reviews/:review_id', function (req, res) {
     });
 });
 
-
+*/
 // listen (start app with node server.js) ======================================
 app.listen(15015,'0.0.0.0');
 console.log("App listening on port 15015");
