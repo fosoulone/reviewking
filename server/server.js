@@ -6,6 +6,7 @@ var morgan = require('morgan'); // log requests to the console (express4)
 var bodyParser = require('body-parser'); // pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 var cors = require('cors');
+const bcrypt= require('bcrypt');
 
 // Configuration
 mongoose.connect('mongodb://adminReviews:adminReviews@localhost/reviewking', {
@@ -106,55 +107,51 @@ app.post('/api/reviews', function (req, res) {
 app.post('/api/users', function (req, res) {
                
     // create a review, information comes from request from Ionic
-/*    User.create({
-        username: req.body.username,
-        password: req.body.password,
-        done: false
-    }, function (err, user) {
-        if (err)
-            res.send(err);
-*/
-        // get and return all the reviews after you create another
+    // get and return all the reviews after you create another
 if (req.body.mode==1){
   User.find({username: req.body.username},function(err,results){
 		if(err) res.send(err);
 		if(results.length==0){
 		    console.log("creating user");
 		    
-		    User.create({
-		        username: req.body.username,
-		        password: req.body.password,
-		        done: false
-		    }, 
-		    function (err, user) {
-		        if (err)
-           		    res.send(err);
-			User.find({username:req.body.username}, function (error, user) {
-			    if (err)
-			        res.send(err)
-			    res.json(user);
-			});
-		    });
+		   
+		    bcrypt.hash(req.body.password, 10, function(err, hash) {
+			    User.create({
+        	                username: req.body.username,
+                	        password: hash,
+                       		done: false
+                   	     },
+                   	     function (err, user) {
+                       		 if (err){ res.send(err);}
+                       		 User.find({username:req.body.username}, function (error, user) {
+                           		 if (err){ res.send(err)}
+                           		 res.json(user);
+                       		 });
+                   	     });
+                    });
 		}
-		else{
-			res.json({'status': -1});
-		}	
-	
-        });
-}
+                else{
+                        res.json({'status': -1});
+                }
+
+		    });
+
+	}
+
 
 if(req.body.mode==0){
   
   User.find({username: req.body.username},function(err,results){
                 if(err) res.send(err);
                 if(results.length==1){
-                    if(req.body.password==results[0].password){
-                        console.log("Loggin in");
-                        res.json({'status': 0});
-                    }
-                    else {
-                        res.json({'status':-1});
-                    }
+                    bcrypt.compare(req.body.password,results[0].password,function(err,ress){
+	                    if (err){ res.send(err)}
+			    if (ress){
+			        console.log("Loggin in");
+                       		res.json({'status': 0});
+			    }
+			    else{res.json({'status':-1});}
+		    });
 
                 }
 
@@ -167,30 +164,6 @@ if(req.body.mode==0){
 
 });
 
-/*app.post('/api/users', function (req, res) {
-
-
-    // create a review, information comes from request from Ionic
-    // get and return all the reviews after you create another
-
-  User.find({username: req.body.username},function(err,results){
-                if(err) res.send(err);
-                if(results.length==1){
-                    if(req.body.password==results[0].password){
-			console.log("Loggin in");
-                   	res.json({'status': 0});
-		    }
-		    else {
-                        res.json({'status':-1});
-	            }
-
-                }
-
-		else {
-			res.json({'status':-1});
-		}
-   });
-});
 // delete a review
 app.delete('/api/reviews/:review_id', function (req, res) {
     Review.remove({
@@ -200,7 +173,6 @@ app.delete('/api/reviews/:review_id', function (req, res) {
     });
 });
 
-*/
 // listen (start app with node server.js) ======================================
 app.listen(15015,'0.0.0.0');
 console.log("App listening on port 15015");

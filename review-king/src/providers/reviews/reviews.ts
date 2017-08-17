@@ -25,7 +25,7 @@ export class Reviews {
  
     return new Promise(resolve => {
  
-      this.http.get('http://adminReviews:adminReviews@52.50.95.81:15015/api/reviews')
+      this.http.get('http://adminReviews:adminReviews@52.51.10.229:15015/api/reviews')
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -40,7 +40,7 @@ export class Reviews {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
  
-    return this.http.post('http://52.50.95.81:15015/api/reviews', 
+    return this.http.post('http://52.51.10.229:15015/api/reviews', 
 	JSON.stringify(review), {headers: headers})
       .map(res => res.json());
       
@@ -49,7 +49,7 @@ export class Reviews {
  
   deleteReview(id){
  
-    this.http.delete('http://52.50.95.81:15015/api/reviews/' + id).subscribe((res) => {
+    this.http.delete('http://52.51.10.229:15015/api/reviews/' + id).subscribe((res) => {
       console.log(res.json());
     });    
  
