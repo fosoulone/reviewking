@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-           <h1> Aplicacion prueba</h1>
+           <h1> Tus reviews</h1>
         </ion-title>
         <ion-buttons end>
             <button ion-button icon-only (click)="addReview()"><ion-icon name="add"></ion-icon></button>
@@ -14,13 +14,9 @@
     <ion-list no-lines>
 
         <ion-item-sliding *ngFor="let review of reviews">
-
-            <ion-item>
-
-
-
-
-                <h2>{{review.title}}</h2>
+		
+            <ion-item *ngIf="review.user == this.user" >
+		<h2>{{review.title}}</h2>
                 <p>{{review.description}}</p>
 
                 <ion-icon *ngIf="review.rating < 50" danger name="sad"></ion-icon>
@@ -30,11 +26,17 @@
             </ion-item>
 
             <ion-item-options>
-                <button ion-button color="secondary" (click)="deleteReview(review)">
-          <ion-icon name="trash"></ion-icon>
-          Delete
-        </button>
-            </ion-item-options>
+        	<button ion-button color="secondary" >
+	          <ion-icon name="create"></ion-icon>
+          	  Modify
+        	</button>
+            	
+		<button ion-button color="danger" (click)="deleteReview(review)">
+                  <ion-icon name="trash"></ion-icon>
+                  Delete
+                </button>
+
+	    </ion-item-options>
         </ion-item-sliding>
 
     </ion-list>

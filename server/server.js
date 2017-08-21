@@ -36,6 +36,7 @@ app.use(function (req, res, next) {
 // Models
 var Review = mongoose.model('Review', {
     title: String,
+    user: String,
     description: String,
     rating: Number
 });
@@ -51,9 +52,8 @@ var User = mongoose.model('User', {
 app.get('/api/reviews', function (req, res) {
 
     console.log("fetching reviews");
-
     // use mongoose to get all reviews in the database
-    Review.find(function (err, reviews) {
+    Review.find({user:req.query.user},function (err, reviews) {
 
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)
@@ -66,7 +66,7 @@ app.get('/api/reviews', function (req, res) {
 app.get('/api/users', function (req, res) {
 
     console.log("fetching users");
-
+    
     // use mongoose to get all reviews in the database
    User.find(function (err, users) {
 
@@ -83,10 +83,12 @@ app.get('/api/users', function (req, res) {
 app.post('/api/reviews', function (req, res) {
 
     console.log("creating review");
+    
 
     // create a review, information comes from request from Ionic
     Review.create({
         title: req.body.title,
+	user: req.body.user,
         description: req.body.description,
         rating: req.body.rating,
         done: false

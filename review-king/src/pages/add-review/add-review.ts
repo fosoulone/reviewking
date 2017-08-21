@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular';
 
 /**
@@ -17,17 +17,19 @@ import { ViewController } from 'ionic-angular';
 export class AddReviewPage {
  
   title: any;
+  user: any;
   description: any;
   rating: any;
  
-  constructor(public viewCtrl: ViewController) {
+  constructor(public viewCtrl: ViewController,public navParams: NavParams) {
+        this.user = navParams.get('username');
  
   }
  
   save(): void {
- 
     let review = {
       title: this.title,
+      user: this.user,
       description: this.description,
       rating: this.rating
     };

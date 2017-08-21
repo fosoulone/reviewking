@@ -23,7 +23,7 @@ import { HomePage } from '../home/home';
 export class Welcome {
 
   users: any;
-
+  
   constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public userService: Users) {
   }
 alertFail(){
@@ -74,18 +74,20 @@ alertSuccessLogin(){
                 if(user){
                
                         this.userService.loginUser(user).subscribe(data => {
-                                this.users=data;
+                                
+				this.users=data;
                                 if(this.users.status == -1){
                                         this.alertFailLogin();
                                 }
                                 else{
                                         this.alertSuccessLogin();
-					this.navCtrl.push(HomePage);
+					this.navCtrl.push(HomePage,{username: user.username});
                                 }
                         });
                 }
 
         });
+
         modal.present();
 
   }

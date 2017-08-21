@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController, NavParams } from 'ionic-angular';
 import { AddReviewPage } from '../add-review/add-review';
 import { Reviews } from '../../providers/reviews/reviews';
  
@@ -10,14 +10,16 @@ import { Reviews } from '../../providers/reviews/reviews';
 export class HomePage {
  
   reviews: any;
+  
+  user: any;  
  
-  constructor(public nav: NavController, public reviewService: Reviews, public modalCtrl: ModalController) {
- 
+  constructor(public nav: NavController, public reviewService: Reviews, public modalCtrl: ModalController, public navParams: NavParams) {
+ 	this.user = navParams.get('username');
   }
  
   ionViewDidLoad(){
  
-    this.reviewService.getReviews().then((data) => {
+    this.reviewService.getReviews(this.user).then((data) => {
       console.log(data);
       this.reviews = data;
     });
@@ -26,7 +28,7 @@ export class HomePage {
  
   addReview(){
  
-    let modal = this.modalCtrl.create(AddReviewPage);
+    let modal = this.modalCtrl.create(AddReviewPage, {username:this.user});
  
     modal.onDidDismiss(review => {
       if(review){
@@ -41,6 +43,24 @@ export class HomePage {
     modal.present();
  
   }
+
+/*  updateReview(){
+
+    let modal = this.modalCtrl.create(ModifyItemPage);
+//HAY QUE CAMBIAR ESTE METODO
+    modal.onDidDismiss(review => {
+      if(review){
+        this.reviews.push(review);
+        this.reviewService.createReview(review).subscribe(data => {
+                console.log(data);
+                this.reviews = data;
+        });
+      }
+    });
+
+    modal.present();
+
+  }*/
  
   deleteReview(review){
  

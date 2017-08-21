@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
@@ -17,15 +17,18 @@ export class Reviews {
     this.data = null;
   }
  
-  getReviews(){
+  getReviews(username){
  
     if (this.data) {
         return Promise.resolve(this.data);
     }
- 
+
+    let params = new URLSearchParams();
+    params.set('user',username);
+
     return new Promise(resolve => {
- 
-      this.http.get('http://adminReviews:adminReviews@52.51.10.229:15015/api/reviews')
+      this.http.get('http://adminReviews:adminReviews@52.51.10.229:15015/api/reviews',
+	{search: params})
         .map(res => res.json())
         .subscribe(data => {
           this.data = data;
@@ -39,7 +42,7 @@ export class Reviews {
  
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
- 
+
     return this.http.post('http://52.51.10.229:15015/api/reviews', 
 	JSON.stringify(review), {headers: headers})
       .map(res => res.json());
