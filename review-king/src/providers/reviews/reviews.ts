@@ -49,11 +49,19 @@ export class Reviews {
       
  
   }
- 
+
+  updateReview(review){
+	
+	let headers= new Headers();
+	headers.append('Content-Type', 'application/json');
+	
+	return this.http.put('http://52.51.10.229:15015/api/reviews/' + review._id,
+	JSON.stringify(review), {headers: headers}).map(res => res.json());	
+  }
+
   deleteReview(id){
  
     this.http.delete('http://52.51.10.229:15015/api/reviews/' + id).subscribe((res) => {
-      console.log(res.json());
     });    
  
   }

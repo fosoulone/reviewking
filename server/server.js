@@ -53,7 +53,7 @@ app.get('/api/reviews', function (req, res) {
 
     console.log("fetching reviews");
     // use mongoose to get all reviews in the database
-    Review.find({user:req.query.user},function (err, reviews) {
+    Review.find({user:req.query.user},null,{sort: {created_at: -1}},function (err, reviews) {
 
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)
@@ -97,7 +97,7 @@ app.post('/api/reviews', function (req, res) {
             res.send(err);
 
         // get and return all the reviews after you create another
-        Review.find(function (err, reviews) {
+        Review.find({user: req.body.user},null,{sort: {created_at: -1}},function (err, reviews) {
             if (err)
                 res.send(err)
             res.json(reviews);
@@ -105,6 +105,25 @@ app.post('/api/reviews', function (req, res) {
     });
 
 });
+
+app.put('/api/reviews/:review_id', function(req, res) {
+console.log(req.body);
+ const doc = {
+    title: req.body.title,
+    user: req.body.user,
+    description: req.body.description,
+    rating: req.body.rating,
+    updatedAt: Date.now(),
+  };
+  Review.update({_id: req.body._id}, doc, function(err, raw){
+        if(err){res.send(err);}
+        Review.find({user: req.body.user}).sort({'created_at': -1}).exec(function (err, reviews){
+		if(err){res.send(err);}
+		res.json(reviews);
+	});
+  });
+});
+
 
 app.post('/api/users', function (req, res) {
                

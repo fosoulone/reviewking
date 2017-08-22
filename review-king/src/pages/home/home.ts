@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { NavController, ModalController, NavParams } from 'ionic-angular';
 import { AddReviewPage } from '../add-review/add-review';
 import { Reviews } from '../../providers/reviews/reviews';
+import { ModifyItemPage } from '../modify-item/modify-item';
  
 @Component({
   selector: 'home-page',
@@ -20,7 +21,7 @@ export class HomePage {
   ionViewDidLoad(){
  
     this.reviewService.getReviews(this.user).then((data) => {
-      console.log(data);
+      //console.log(data);
       this.reviews = data;
     });
  
@@ -34,7 +35,8 @@ export class HomePage {
       if(review){
         this.reviews.push(review);
         this.reviewService.createReview(review).subscribe(data => {
-		console.log(data);
+		
+		//console.log(data);
 		this.reviews = data;
 	});        
       }
@@ -44,29 +46,28 @@ export class HomePage {
  
   }
 
-/*  updateReview(){
-
-    let modal = this.modalCtrl.create(ModifyItemPage);
-//HAY QUE CAMBIAR ESTE METODO
+  updateReview(review){
+    let modal = this.modalCtrl.create(ModifyItemPage, {review: review});
     modal.onDidDismiss(review => {
       if(review){
-        this.reviews.push(review);
-        this.reviewService.createReview(review).subscribe(data => {
-                console.log(data);
+      	console.log(review);
+ 	this.reviews.push(review);
+        this.reviewService.updateReview(review).subscribe(data => {
+                //console.log(data);
                 this.reviews = data;
         });
       }
     });
 
     modal.present();
-
-  }*/
+	
+  }
  
   deleteReview(review){
  
     //Remove locally
       let index = this.reviews.indexOf(review);
- 
+ 	//console.log(review);
       if(index > -1){
         this.reviews.splice(index, 1);
       }   

@@ -14,6 +14,8 @@ import { Welcome } from '../pages/welcome/welcome';
 import { Login } from '../pages/login/login';
 import { Signup } from '../pages/signup/signup';
 import { Users } from '../providers/users/users';
+import { ModifyItemPage } from '../pages/modify-item/modify-item';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { Users } from '../providers/users/users';
     AddReviewPage,
     Welcome,
     Login,
-    Signup
+    Signup,
+    ModifyItemPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { Users } from '../providers/users/users';
     AddReviewPage,
     Welcome,
     Login,
-    Signup
+    Signup,
+    ModifyItemPage
   ],
   providers: [
     StatusBar,

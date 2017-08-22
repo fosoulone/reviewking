@@ -19,13 +19,13 @@
     <ion-list no-lines>
 
         <ion-item>
-            <ion-label floating>Titulo</ion-label>
-            <ion-input [(ngModel)]="title" type="text"></ion-input>
+            <ion-label >Titulo</ion-label>
+            <ion-input [(ngModel)]="title" type="text" value={{reviewToUpdate.title}}></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label floating>Critica</ion-label>
-            <ion-textarea [(ngModel)]="description"></ion-textarea>
+            <ion-label >Critica</ion-label>
+            <ion-textarea [(ngModel)]="description" value={{reviewToUpdate.description}}></ion-textarea>
         </ion-item>
 
         <ion-item>
@@ -37,7 +37,7 @@
 
     </ion-list>
 
-    <button ion-button full color="secondary" (click)="save()">Save</button>
+    <button ion-button block color="secondary" (click)="save()">Save</button>
 
 </ion-content>
 

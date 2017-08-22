@@ -14,18 +14,22 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'modify-item.html',
 })
 export class ModifyItemPage {
-	
-	title:any;
-	description: any;
-	rating: any;
-	
-	
+  
+  reviewToUpdate: any;	
+  title: any;
+  user: any;
+  description: any;
+  rating: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+        this.reviewToUpdate = navParams.get('review');
   }
 	save(): void {
-
+		
 		let review= {
+			_id: this.reviewToUpdate._id,
 			title: this.title,
+			user: this.reviewToUpdate.user,
 			description: this.description,
 			rating: this.rating
 		};
