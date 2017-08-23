@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color= "bar">
         <ion-title>
            <h1> Tus reviews</h1>
         </ion-title>
@@ -19,11 +19,21 @@
 		<h2>{{review.title}}</h2>
                 <p>{{review.description}}</p>
 
-                <ion-icon *ngIf="review.rating < 50" danger name="sad"></ion-icon>
-                <ion-icon *ngIf="review.rating >= 50" secondary name="happy"></ion-icon>
+                <ion-icon *ngIf="review.rating < 50" color='danger' name="sad"></ion-icon>
+                <ion-icon *ngIf="review.rating >= 50" color= 'verde' name="happy"></ion-icon>
                 {{review.rating}}
+		<button ion-button item-end color="verde" (click)="updateReview(review)">
+                  <ion-icon name="create"></ion-icon>
+                  &nbsp;Modify
+                </button>
+
+                <button ion-button item-end color="danger" (click)="deleteReview(review)">
+                  <ion-icon name="trash"></ion-icon>
+                  &nbsp;Delete
+                </button>
 
             </ion-item>
+	    
 
             <ion-item-options>
         	<button ion-button color="secondary" (click)="updateReview(review)">

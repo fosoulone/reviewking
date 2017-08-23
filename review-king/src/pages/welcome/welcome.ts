@@ -5,6 +5,7 @@ import { Signup } from '../signup/signup';
 import { Users } from '../../providers/users/users';
 import { AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { AdminControlPage } from '../admin-control/admin-control';
 
 
 /**
@@ -79,10 +80,15 @@ alertSuccessLogin(){
                                 if(this.users.status == -1){
                                         this.alertFailLogin();
                                 }
-                                else{
+                                if(this.users.status == 0){
                                         this.alertSuccessLogin();
 					this.navCtrl.push(HomePage,{username: user.username});
+					//this.navCtrl.push(AdminControlPage);
                                 }
+				if(this.users.status == 1){
+					this.alertSuccessLogin();
+					this.navCtrl.push(AdminControlPage);
+				}
                         });
                 }
 
@@ -112,4 +118,7 @@ alertSuccessLogin(){
 	modal.present();
   }
 
+  admin(){
+  	this.navCtrl.push(AdminControlPage);
+  }
 }

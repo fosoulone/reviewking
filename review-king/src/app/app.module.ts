@@ -15,7 +15,7 @@ import { Login } from '../pages/login/login';
 import { Signup } from '../pages/signup/signup';
 import { Users } from '../providers/users/users';
 import { ModifyItemPage } from '../pages/modify-item/modify-item';
-
+import { AdminControlPage } from '../pages/admin-control/admin-control';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { ModifyItemPage } from '../pages/modify-item/modify-item';
     Welcome,
     Login,
     Signup,
-    ModifyItemPage
+    ModifyItemPage,
+    AdminControlPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,8 @@ import { ModifyItemPage } from '../pages/modify-item/modify-item';
     Welcome,
     Login,
     Signup,
-    ModifyItemPage
+    ModifyItemPage,
+    AdminControlPage
   ],
   providers: [
     StatusBar,

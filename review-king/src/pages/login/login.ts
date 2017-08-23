@@ -19,6 +19,7 @@ export class Login {
   username: any;
   password: any;
   mode: any;
+  admin: any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
@@ -28,7 +29,8 @@ export class Login {
     let log = {
 	username: this.username,
 	password: this.password,
-	mode: 0
+	mode: 0,
+	admin: 0
     };
     this.viewCtrl.dismiss(log);
   }

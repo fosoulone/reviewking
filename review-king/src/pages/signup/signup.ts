@@ -18,6 +18,7 @@ export class Signup {
   username: any;
   password: any;
   mode: any;
+  admin: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
@@ -27,7 +28,8 @@ export class Signup {
 	let registro = {
 	  username: this.username,
 	  password: this.password,
-	  mode: 1
+	  mode: 1,
+	  admin:0
 	};
 
 	this.viewCtrl.dismiss(registro);

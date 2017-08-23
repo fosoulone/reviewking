@@ -43,7 +43,8 @@ var Review = mongoose.model('Review', {
 
 var User = mongoose.model('User', {
     username: String,
-    password: String
+    password: String,
+    admin: Number
 });
 
 // Routes
@@ -58,7 +59,7 @@ app.get('/api/reviews', function (req, res) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)
             res.send(err)
-
+	console.log(reviews);
         res.json(reviews); // return all reviews in JSON format
     });
 });
@@ -137,9 +138,11 @@ if (req.body.mode==1){
 		    
 		   
 		    bcrypt.hash(req.body.password, 10, function(err, hash) {
-			    User.create({
+			     console.log(req.body);
+			     User.create({
         	                username: req.body.username,
                 	        password: hash,
+				admin: req.body.admin,
                        		done: false
                    	     },
                    	     function (err, user) {
@@ -169,7 +172,12 @@ if(req.body.mode==0){
 	                    if (err){ res.send(err)}
 			    if (ress){
 			        console.log("Loggin in");
-                       		res.json({'status': 0});
+				if (results[0].admin ==1){
+					res.json({'status': 1});
+				}
+				else{
+                       			res.json({'status': 0});
+				}
 			    }
 			    else{res.json({'status':-1});}
 		    });
