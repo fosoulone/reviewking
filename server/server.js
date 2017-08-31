@@ -38,7 +38,9 @@ var Review = mongoose.model('Review', {
     title: String,
     user: String,
     description: String,
-    rating: Number
+    rating: Number,
+    image: String,
+    video: String
 });
 
 var User = mongoose.model('User', {
@@ -59,7 +61,6 @@ app.get('/api/reviews', function (req, res) {
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)
             res.send(err)
-	console.log(reviews);
         res.json(reviews); // return all reviews in JSON format
     });
 });
@@ -92,6 +93,8 @@ app.post('/api/reviews', function (req, res) {
 	user: req.body.user,
         description: req.body.description,
         rating: req.body.rating,
+	image: req.body.image,
+	video: req.body.video,
         done: false
     }, function (err, review) {
         if (err)
@@ -114,6 +117,8 @@ console.log(req.body);
     user: req.body.user,
     description: req.body.description,
     rating: req.body.rating,
+    image: req.body.image,
+    video: req.body.video,
     updatedAt: Date.now(),
   };
   Review.update({_id: req.body._id}, doc, function(err, raw){
@@ -198,6 +203,12 @@ app.delete('/api/reviews/:review_id', function (req, res) {
     Review.remove({
         _id: req.params.review_id
     }, function (err, review) {
+	if (err){
+		res.json({'status': -1});
+        }        
+        else{
+        	res.json({'status': 0});
+        }
 
     });
 });

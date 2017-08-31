@@ -61,8 +61,8 @@ export class Reviews {
 
   deleteReview(id){
  
-    this.http.delete('http://52.51.10.229:15015/api/reviews/' + id).subscribe((res) => {
-    });    
+    return this.http.delete('http://52.51.10.229:15015/api/reviews/' + id).map(res => res.json());
+        
  
   }
  

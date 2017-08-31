@@ -42,7 +42,8 @@ $colors: (
   energy:     #FFFFFF,
   lightprimary: #B5B5B7,
   verde: #51b568,
-  bar: #347eff
+  bar: #347eff,
+  buttons: #314a75
 );
 
 $toolbar-background: color($colors, primary);
@@ -75,7 +76,6 @@ $toolbar-background: color($colors, primary);
 // default are overridden.
 
 @import "ionic.theme.default";
-
 
 // Ionicons
 // --------------------------------------------------

@@ -48,7 +48,7 @@ var Login = (function () {
 Login = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Iniciar Sesión</ion-title>\n    <ion-buttons end>\n        <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n\n        <ion-item>\n            <ion-label floating>Username</ion-label>\n            <ion-input  [(ngModel)]="username" type="text"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Password</ion-label>\n            <ion-input type="password" [(ngModel)]="password"></ion-input>\n        </ion-item>\n\n    </ion-list>\n\n    <button ion-button full color="secondary" (click)="login()">Enviar</button>\n\n</ion-content>\n\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/login/login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Iniciar Sesión</ion-title>\n    <ion-buttons end>\n        <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n	<ion-list>\n        <ion-item>\n            <ion-label floating>Username</ion-label>\n            <ion-input  [(ngModel)]="username" type="text"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Password</ion-label>\n            <ion-input type="password" [(ngModel)]="password"></ion-input>\n        </ion-item>\n\n</ion-list>\n    <button ion-button block color="secondary" (click)="login()">Enviar</button>\n\n</ion-content>\n\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/login/login.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]])
 ], Login);
@@ -104,7 +104,7 @@ var Signup = (function () {
 Signup = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-signup',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Registrarse</ion-title>\n    <ion-buttons end>\n	<button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n\n       <ion-item>\n            <ion-label floating>Username</ion-label>\n            <ion-input  [(ngModel)]="username" type="text"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Password</ion-label>\n            <ion-input type="password"  [(ngModel)]="password"></ion-input>\n        </ion-item>\n\n\n    </ion-list>\n\n    <button ion-button full color="secondary" (click)="register()">Enviar</button>\n\n</ion-content>\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/signup/signup.html"*/,
+        selector: 'page-signup',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Registrarse</ion-title>\n    <ion-buttons end>\n	<button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list>\n\n       <ion-item>\n            <ion-label floating>Username</ion-label>\n            <ion-input  [(ngModel)]="username" type="text"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Password</ion-label>\n            <ion-input type="password"  [(ngModel)]="password"></ion-input>\n        </ion-item>\n\n\n    </ion-list>\n\n    <button ion-button block color="secondary" (click)="register()">Enviar</button>\n\n</ion-content>\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/signup/signup.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]])
 ], Signup);
@@ -149,7 +149,9 @@ var AddReviewPage = (function () {
             title: this.title,
             user: this.user,
             description: this.description,
-            rating: this.rating
+            rating: this.rating,
+            image: this.image,
+            video: this.video
         };
         this.viewCtrl.dismiss(review);
     };
@@ -161,7 +163,7 @@ var AddReviewPage = (function () {
 AddReviewPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'add-review-page',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/add-review/add-review.html"*/'<!--\n  Generated template for the AddReviewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n        <ion-title>Añadir review</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-list no-lines>\n\n        <ion-item>\n            <ion-label floating>Titulo</ion-label>\n            <ion-input [(ngModel)]="title" type="text"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Critica</ion-label>\n            <ion-textarea [(ngModel)]="description"></ion-textarea>\n        </ion-item>\n\n        <ion-item>\n            <ion-range min="0" max="100" pin="true" [(ngModel)]="rating">\n                <ion-icon range-left name="sad"></ion-icon>\n                <ion-icon range-right name="happy"></ion-icon>\n            </ion-range>\n        </ion-item>\n\n    </ion-list>\n\n    <button ion-button full color="secondary" (click)="save()">Save</button>\n\n</ion-content>\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/add-review/add-review.html"*/
+        selector: 'add-review-page',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/add-review/add-review.html"*/'<!--\n  Generated template for the AddReviewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n        <ion-title>Añadir review</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <ion-list no-lines>\n\n        <ion-item>\n            <ion-label floating>Titulo</ion-label>\n            <ion-input [(ngModel)]="title" type="text"></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label floating>Critica</ion-label>\n            <ion-textarea [(ngModel)]="description"></ion-textarea>\n        </ion-item>\n\n        <ion-item>\n            <ion-range min="0" max="100" pin="true" [(ngModel)]="rating">\n                <ion-icon range-left name="sad"></ion-icon>\n                <ion-icon range-right name="happy"></ion-icon>\n            </ion-range>\n        </ion-item>\n	\n	<ion-item>\n            <ion-label floating>Imagen</ion-label>\n            <ion-input [(ngModel)]="image" type="text"></ion-input>\n        </ion-item>\n\n	<ion-item>\n            <ion-label floating>Video</ion-label>\n            <ion-input [(ngModel)]="video" type="text" value="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></ion-input>\n        </ion-item>\n	\n    </ion-list>\n	\n    <button ion-button block color="secondary" (click)="save()">Save</button>\n	\n</ion-content>\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/add-review/add-review.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
 ], AddReviewPage);
@@ -219,7 +221,7 @@ var ModifyItemPage = (function () {
 ModifyItemPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-modify-item',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/modify-item/modify-item.html"*/'<!--\n  Generated template for the ModifyItemPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n    <ion-navbar>\n        <ion-title>Modificar Item</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-list no-lines>\n\n        <ion-item>\n            <ion-label >Titulo</ion-label>\n            <ion-input [(ngModel)]="title" type="text" value={{reviewToUpdate.title}}></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label >Critica</ion-label>\n            <ion-textarea [(ngModel)]="description" value={{reviewToUpdate.description}}></ion-textarea>\n        </ion-item>\n\n        <ion-item>\n            <ion-range min="0" max="100" pin="true" [(ngModel)]="rating">\n                <ion-icon range-left name="sad"></ion-icon>\n                <ion-icon range-right name="happy"></ion-icon>\n            </ion-range>\n        </ion-item>\n\n    </ion-list>\n\n    <button ion-button block color="secondary" (click)="save()">Save</button>\n\n</ion-content>\n\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/modify-item/modify-item.html"*/,
+        selector: 'page-modify-item',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/modify-item/modify-item.html"*/'<!--\n  Generated template for the ModifyItemPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n    <ion-navbar>\n        <ion-title>Modificar Item</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <ion-list> \n\n        <ion-item>\n            <ion-label >Titulo</ion-label>\n            <ion-input [(ngModel)]="title" type="text" value={{reviewToUpdate.title}}></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label >Critica</ion-label>\n            <ion-textarea [(ngModel)]="description" value={{reviewToUpdate.description}}></ion-textarea>\n        </ion-item>\n\n        <ion-item>\n            <ion-range min="0" max="100" pin="true" [(ngModel)]="rating">\n                <ion-icon range-left name="sad"></ion-icon>\n                <ion-icon range-right name="happy"></ion-icon>\n            </ion-range>\n        </ion-item>\n\n    </ion-list>\n\n    <button ion-button block color="secondary" (click)="save()">Save</button>\n\n</ion-content>\n\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/modify-item/modify-item.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */]])
 ], ModifyItemPage);
@@ -450,7 +452,7 @@ var Welcome = (function () {
 Welcome = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-welcome',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/welcome/welcome.html"*/'<!--\n  Generated template for the WelcomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-content padding id="welcome">\n  <ion-grid>\n    <ion-row text-center>\n      <ion-col>\n        <h1>Bienvenido</h1>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <ion-grid >\n    <ion-row>\n      <ion-col center text-center>\n        <button ion-button color="bar" (click)="signup()">Regístrarse</button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col center text-center>\n        <button ion-button color="bar" (click)="login()">Iniciar Sesión</button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col center text-center>\n        <button ion-button color="bar" (click)="admin()">ADMINISTRADOR</button>\n      </ion-col>\n    </ion-row>\n\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/welcome/welcome.html"*/,
+        selector: 'page-welcome',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/welcome/welcome.html"*/'<!--\n  Generated template for the WelcomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-content padding id="welcome">\n  <ion-grid>\n    <ion-row text-center>\n      <ion-col>\n        <h1>Bienvenido</h1>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <ion-grid >\n    <ion-row>\n      <ion-col center text-center>\n        <button ion-button color="buttons" (click)="signup()">Regístrarse</button>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col center text-center>\n        <button ion-button color="buttons" (click)="login()">Iniciar Sesión</button>\n      </ion-col>\n    </ion-row>\n   <!-- <ion-row>\n      <ion-col center text-center>\n        <button ion-button color="bar" (click)="admin()">ADMINISTRADOR</button>\n      </ion-col>\n    </ion-row>-->\n\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/welcome/welcome.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_4__providers_users_users__["a" /* Users */]])
 ], Welcome);
@@ -482,27 +484,31 @@ webpackEmptyAsyncContext.id = 114;
 var map = {
 	"../pages/add-review/add-review.module": [
 		273,
-		5
+		14
 	],
 	"../pages/admin-control/admin-control.module": [
 		275,
-		4
+		13
 	],
 	"../pages/login/login.module": [
 		271,
-		3
+		12
 	],
 	"../pages/modify-item/modify-item.module": [
 		274,
-		2
+		11
+	],
+	"../pages/review/review.module": [
+		277,
+		8
 	],
 	"../pages/signup/signup.module": [
 		272,
-		1
+		10
 	],
 	"../pages/welcome/welcome.module": [
 		276,
-		0
+		9
 	]
 };
 function webpackAsyncContext(req) {
@@ -600,6 +606,7 @@ Users = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_review_add_review__ = __webpack_require__(102);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_reviews_reviews__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modify_item_modify_item__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__review_review__ = __webpack_require__(278);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -609,6 +616,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -625,7 +633,7 @@ var HomePage = (function () {
     HomePage.prototype.ionViewDidLoad = function () {
         var _this = this;
         this.reviewService.getReviews(this.user).then(function (data) {
-            console.log(data);
+            // console.log(data);
             _this.reviews = data;
         });
     };
@@ -658,6 +666,18 @@ var HomePage = (function () {
         });
         modal.present();
     };
+    HomePage.prototype.showReview = function (review) {
+        var _this = this;
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_5__review_review__["a" /* ReviewPage */], { review: review });
+        modal.onDidDismiss(function (review) {
+            if (review) {
+                console.log(review);
+                _this.reviews.push(review);
+                _this.reviews = review;
+            }
+        });
+        modal.present();
+    };
     HomePage.prototype.deleteReview = function (review) {
         //Remove locally
         var index = this.reviews.indexOf(review);
@@ -666,13 +686,15 @@ var HomePage = (function () {
             this.reviews.splice(index, 1);
         }
         //Remove from database
-        this.reviewService.deleteReview(review._id);
+        this.reviewService.deleteReview(review._id).subscribe(function (data) {
+            console.log(data);
+        });
     };
     return HomePage;
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'home-page',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color= "bar">\n        <ion-title>\n           <h1> Tus reviews</h1>\n        </ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="addReview()"><ion-icon name="add"></ion-icon></button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-list no-lines>\n\n        <ion-item-sliding *ngFor="let review of reviews">\n		\n            <ion-item *ngIf="review.user == this.user" >\n		<h2>{{review.title}}</h2>\n                <p>{{review.description}}</p>\n\n                <ion-icon *ngIf="review.rating < 50" color=\'danger\' name="sad"></ion-icon>\n                <ion-icon *ngIf="review.rating >= 50" color= \'verde\' name="happy"></ion-icon>\n                {{review.rating}}\n		<button ion-button item-end color="verde" (click)="updateReview(review)">\n                  <ion-icon name="create"></ion-icon>\n                  &nbsp;Modify\n                </button>\n\n                <button ion-button item-end color="danger" (click)="deleteReview(review)">\n                  <ion-icon name="trash"></ion-icon>\n                  &nbsp;Delete\n                </button>\n\n            </ion-item>\n	    \n\n            <ion-item-options>\n        	<button ion-button color="secondary" (click)="updateReview(review)">\n	          <ion-icon name="create"></ion-icon>\n          	  Modify\n        	</button>\n            	\n		<button ion-button color="danger" (click)="deleteReview(review)">\n                  <ion-icon name="trash"></ion-icon>\n                  Delete\n                </button>\n\n	    </ion-item-options>\n        </ion-item-sliding>\n\n    </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/home/home.html"*/
+        selector: 'home-page',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/home/home.html"*/'<ion-header>\n    <ion-navbar color= "bar">\n        <ion-title>\n           <h1> Tus reviews</h1>\n        </ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="addReview()"><ion-icon name="add"></ion-icon></button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-list >\n\n        <ion-item-sliding *ngFor="let review of reviews">\n		\n            <ion-item *ngIf="review.user == this.user" (click)="showReview(review)" style="padding-left: 0px;padding-right: 16px;">\n		<h2>{{review.title}}</h2>\n                <p>{{review.description}}</p>\n\n                <ion-icon *ngIf="review.rating < 50" color=\'danger\' name="sad"></ion-icon>\n                <ion-icon *ngIf="review.rating >= 50" color= \'verde\' name="happy"></ion-icon>\n                {{review.rating}}\n		<ion-icon item-end name="ios-arrow-back"></ion-icon>\n\n            </ion-item>\n	    \n\n            <ion-item-options style="padding-right: 10px;">\n        	<button ion-button color="secondary" (click)="updateReview(review)">\n	          <ion-icon name="create"></ion-icon>\n          	  Modify\n        	</button>\n            	\n		<button ion-button color="danger" (click)="deleteReview(review)">\n                  <ion-icon name="trash"></ion-icon>\n                  Delete\n                </button>\n\n	    </ion-item-options>\n        </ion-item-sliding>\n\n    </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_reviews_reviews__["a" /* Reviews */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
 ], HomePage);
@@ -716,12 +738,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_users_users__ = __webpack_require__(158);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_modify_item_modify_item__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_admin_control_admin_control__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_review_review__ = __webpack_require__(278);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -753,7 +777,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__pages_login_login__["a" /* Login */],
             __WEBPACK_IMPORTED_MODULE_12__pages_signup_signup__["a" /* Signup */],
             __WEBPACK_IMPORTED_MODULE_14__pages_modify_item_modify_item__["a" /* ModifyItemPage */],
-            __WEBPACK_IMPORTED_MODULE_15__pages_admin_control_admin_control__["a" /* AdminControlPage */]
+            __WEBPACK_IMPORTED_MODULE_15__pages_admin_control_admin_control__["a" /* AdminControlPage */],
+            __WEBPACK_IMPORTED_MODULE_16__pages_review_review__["a" /* ReviewPage */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -765,7 +790,8 @@ AppModule = __decorate([
                     { loadChildren: '../pages/add-review/add-review.module#AddReviewPageModule', name: 'AddReviewPage', segment: 'add-review', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/modify-item/modify-item.module#ModifyItemPageModule', name: 'ModifyItemPage', segment: 'modify-item', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/admin-control/admin-control.module#AdminControlPageModule', name: 'AdminControlPage', segment: 'admin-control', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'Welcome', segment: 'welcome', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'Welcome', segment: 'welcome', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/review/review.module#ReviewPageModule', name: 'ReviewPage', segment: 'review', priority: 'low', defaultHistory: [] }
                 ]
             })
         ],
@@ -778,7 +804,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__pages_login_login__["a" /* Login */],
             __WEBPACK_IMPORTED_MODULE_12__pages_signup_signup__["a" /* Signup */],
             __WEBPACK_IMPORTED_MODULE_14__pages_modify_item_modify_item__["a" /* ModifyItemPage */],
-            __WEBPACK_IMPORTED_MODULE_15__pages_admin_control_admin_control__["a" /* AdminControlPage */]
+            __WEBPACK_IMPORTED_MODULE_15__pages_admin_control_admin_control__["a" /* AdminControlPage */],
+            __WEBPACK_IMPORTED_MODULE_16__pages_review_review__["a" /* ReviewPage */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
@@ -837,6 +864,69 @@ MyApp = __decorate([
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 278:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReviewPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(25);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the ReviewPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var ReviewPage = (function () {
+    function ReviewPage(navCtrl, navParams, viewCtrl, sanitizer) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.sanitizer = sanitizer;
+        this.reviewToUpdate = navParams.get('review');
+        this.url = this.reviewToUpdate.video;
+    }
+    ReviewPage.prototype.transform = function (url) {
+        console.log(url);
+        return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    };
+    ReviewPage.prototype.close = function () {
+        this.viewCtrl.dismiss();
+    };
+    ReviewPage.prototype.ionViewDidLoad = function () {
+        console.log(this.reviewToUpdate);
+        console.log(this.url);
+        console.log('ionViewDidLoad ReviewPage');
+    };
+    return ReviewPage;
+}());
+ReviewPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-review',template:/*ion-inline-start:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/review/review.html"*/'<!--\n  Generated template for the ReviewPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n    <ion-navbar>\n        <ion-title>Review</ion-title>\n        <ion-buttons end>\n            <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <ion-list>\n        <ion-item>\n            <ion-label >Titulo</ion-label>\n	    <ion-input [(ngModel)]="input" value={{reviewToUpdate.title}}></ion-input>\n        </ion-item>\n\n\n        <ion-item>\n            <ion-label >Critica</ion-label>\n            <ion-input [(ngModel)]="description" value={{reviewToUpdate.description}}></ion-input>\n	</ion-item>\n\n        <ion-item>\n     	    <ion-label>Rating</ion-label>\n            <ion-input [(ngModel)]="rating" value={{reviewToUpdate.rating}}></ion-input>\n	</ion-item>\n\n	<ion-item>\n            <ion-label>Imagen</ion-label>\n            <ion-input [(ngModel)]="image" value={{reviewToUpdate.image}}></ion-input>\n        </ion-item>\n\n        <ion-item>\n            <ion-label>Video</ion-label>\n<!--            <iframe width="auto" height="auto" [src]="url | safe"  allowfullscreen></iframe>\n-->		\n            <ion-input [(ngModel)]="video" value={{url}}></ion-input>\n	    <iframe width="auto" height="auto" src={{url}}  allowfullscreen></iframe>\n        </ion-item>\n\n    </ion-list>\n\n    <button ion-button block color="secondary" (click)="close()">Ok</button>\n\n</ion-content>\n'/*ion-inline-end:"/home/bitnami/proyects/app1/reviewking/review-king/src/pages/review/review.html"*/,
+    }),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["W" /* Pipe */])({ name: 'safe' }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["c" /* DomSanitizer */]])
+], ReviewPage);
+
+//# sourceMappingURL=review.js.map
 
 /***/ }),
 
@@ -900,8 +990,7 @@ var Reviews = (function () {
         return this.http.put('http://52.51.10.229:15015/api/reviews/' + review._id, JSON.stringify(review), { headers: headers }).map(function (res) { return res.json(); });
     };
     Reviews.prototype.deleteReview = function (id) {
-        this.http.delete('http://52.51.10.229:15015/api/reviews/' + id).subscribe(function (res) {
-        });
+        return this.http.delete('http://52.51.10.229:15015/api/reviews/' + id).map(function (res) { return res.json(); });
     };
     return Reviews;
 }());

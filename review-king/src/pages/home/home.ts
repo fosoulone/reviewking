@@ -3,6 +3,8 @@ import { NavController, ModalController, NavParams } from 'ionic-angular';
 import { AddReviewPage } from '../add-review/add-review';
 import { Reviews } from '../../providers/reviews/reviews';
 import { ModifyItemPage } from '../modify-item/modify-item';
+import { ReviewPage } from '../review/review';
+
  
 @Component({
   selector: 'home-page',
@@ -21,7 +23,7 @@ export class HomePage {
   ionViewDidLoad(){
  
     this.reviewService.getReviews(this.user).then((data) => {
-      console.log(data);
+     // console.log(data);
       this.reviews = data;
     });
  
@@ -62,6 +64,21 @@ export class HomePage {
     modal.present();
 	
   }
+
+  showReview(review){
+    let modal = this.modalCtrl.create(ReviewPage, {review: review});
+    modal.onDidDismiss(review => {
+      if(review){
+        console.log(review);
+        this.reviews.push(review);
+        this.reviews = review;
+        
+      }
+    });
+
+    modal.present();
+
+  }
  
   deleteReview(review){
  
@@ -73,7 +90,9 @@ export class HomePage {
       }   
  
     //Remove from database
-    this.reviewService.deleteReview(review._id);
+    this.reviewService.deleteReview(review._id).subscribe(data => {
+	console.log(data);
+    });
   }
  
 }

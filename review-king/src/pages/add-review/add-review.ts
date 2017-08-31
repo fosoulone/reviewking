@@ -20,6 +20,8 @@ export class AddReviewPage {
   user: any;
   description: any;
   rating: any;
+  image: any;
+  video: any;
  
   constructor(public viewCtrl: ViewController,public navParams: NavParams) {
         this.user = navParams.get('username');
@@ -31,7 +33,9 @@ export class AddReviewPage {
       title: this.title,
       user: this.user,
       description: this.description,
-      rating: this.rating
+      rating: this.rating,
+      image: this.image,
+      video: this.video
     };
  
     this.viewCtrl.dismiss(review);

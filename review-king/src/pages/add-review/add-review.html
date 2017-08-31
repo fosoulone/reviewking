@@ -13,7 +13,7 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
 
     <ion-list no-lines>
 
@@ -33,9 +33,19 @@
                 <ion-icon range-right name="happy"></ion-icon>
             </ion-range>
         </ion-item>
+	
+	<ion-item>
+            <ion-label floating>Imagen</ion-label>
+            <ion-input [(ngModel)]="image" type="text"></ion-input>
+        </ion-item>
 
+	<ion-item>
+            <ion-label floating>Video</ion-label>
+            <ion-input [(ngModel)]="video" type="text" value="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></ion-input>
+        </ion-item>
+	
     </ion-list>
-
-    <button ion-button full color="secondary" (click)="save()">Save</button>
-
+	
+    <button ion-button block color="secondary" (click)="save()">Save</button>
+	
 </ion-content>

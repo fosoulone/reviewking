@@ -16,6 +16,8 @@ import { Signup } from '../pages/signup/signup';
 import { Users } from '../providers/users/users';
 import { ModifyItemPage } from '../pages/modify-item/modify-item';
 import { AdminControlPage } from '../pages/admin-control/admin-control';
+import { ReviewPage } from '../pages/review/review';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { AdminControlPage } from '../pages/admin-control/admin-control';
     Login,
     Signup,
     ModifyItemPage,
-    AdminControlPage
+    AdminControlPage,
+    ReviewPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { AdminControlPage } from '../pages/admin-control/admin-control';
     Login,
     Signup,
     ModifyItemPage,
-    AdminControlPage
+    AdminControlPage,
+    ReviewPage
   ],
   providers: [
     StatusBar,
